@@ -317,7 +317,7 @@ namespace LabsterSVGtoXMLExporter
                 foreach (XMLData page in _fileContent.ListPageData)
                 {
                     var pageVar = (XMLPageData)page;
-                    writer.WriteStartElement("Page");
+                    writer.WriteStartElement("GUIPage");
                     writer.WriteAttributeString("Id", "Page_" + pageVar.Id);
 
                     int x = 0;
@@ -326,7 +326,7 @@ namespace LabsterSVGtoXMLExporter
                         var dataImage = pageData as XMLImageData;
                         if (dataImage != null)
                         {
-                            writer.WriteStartElement("Image");
+                            writer.WriteStartElement("GUIImage");
                             writer.WriteAttributeString("Id", "Image_" + x.ToString());
                             writer.WriteAttributeString("Size", FormatVector2(dataImage.width, dataImage.height));
                             writer.WriteAttributeString("Position", FormatVector2(dataImage.x, dataImage.y));
@@ -341,12 +341,12 @@ namespace LabsterSVGtoXMLExporter
                         var dataText = pageData as XMLTextData;
                         if (dataText != null)
                         {
-                            writer.WriteStartElement("Label");
+                            writer.WriteStartElement("GUILabel");
                             writer.WriteAttributeString("Id", "Label_" + x.ToString());
                             writer.WriteAttributeString("Size", FormatVector2("500", dataText.fontSize));
-                            writer.WriteAttributeString("Position", FormatVector2(dataText.x, dataText.y));
+                            writer.WriteAttributeString("Position", FormatVector2( (float.Parse(dataText.x) - float.Parse(dataText.fontSize)).ToString(), dataText.y));
                             writer.WriteAttributeString("Depth", "2");
-                            writer.WriteAttributeString("Align", "TopLeft");
+                            writer.WriteAttributeString("Align", "Left");
                             writer.WriteAttributeString("Text", dataText.text);
                             writer.WriteAttributeString("TextSize", dataText.fontSize);
                             writer.WriteAttributeString("Color", "Black");
