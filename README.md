@@ -3,14 +3,6 @@ convert svg file to GUI for Labster xml
 
 So this tool would convert your .svg file to Labster-GUI XML file.
 
-to use this tool please :
-1. download the tool from here :
-    https://drive.google.com/open?id=12AesZ-Z13lPuJq_2OdLZPNhskdhauGxk
-
-2. Extract the content of the file and then click setup.
-3. After you do that. it would open the tool.
-
-4. You are ready to go!!
 
 To use the tool please follow the guidance in this video.
 
